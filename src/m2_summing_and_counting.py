@@ -314,7 +314,7 @@ def count_sines_vs_cosines(m):
         cosine = math.cos(k)
         sine = math.sin(k)
         if sine > cosine:
-            total= total + 1
+            total = total + 1
 
     for k in range(range_):
         cosine = math.cos(-k)
@@ -322,7 +322,7 @@ def count_sines_vs_cosines(m):
         if sine > cosine:
             total = total + 1
 
-    return (total)
+    return total
 
 
 # ----------------------------------------------------------------------
