@@ -125,7 +125,7 @@ def sum_from(m, n):
     #   of the RANGE expression, if you happen to know them.
     # ------------------------------------------------------------------
 
-    range_ = n -m + 1
+    range_ = n - m + 1
     total = 0
     for k in range(range_):
         total = (m + k) + total
@@ -188,7 +188,6 @@ def run_test_factorial():
     print('       actual (from my code): ', answer_from_my_code)
 
 
-
 def factorial(n):
     """
     What comes in:  The sole argument is a non-negative integer n.
@@ -211,7 +210,6 @@ def factorial(n):
         total = total * (n - k)
 
     return total
-
 
 
 def run_test_count_cosines_from():
