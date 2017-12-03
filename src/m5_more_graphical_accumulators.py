@@ -145,6 +145,7 @@ def run_test_draw_circles_from_rectangle():
     #   Follow the same form as the example in a previous problem.
     ####################################################################
     # ------------------------------------------------------------------
+    
 
 
 def draw_circles_from_rectangle(m, n, rectangle, window):
