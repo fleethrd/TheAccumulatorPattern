@@ -147,30 +147,29 @@ def run_test_draw_circles_from_rectangle():
     # ------------------------------------------------------------------
 
     title = 'Tests 1 and 2 of DRAW_CIRCLES_FROM_RECTANGLE: '
-    title = title + ' '
-    window1 = rg.RoseWindow(650, 350, title)
+    window1 = rg.RoseWindow(300, 300, title)
 
     # Test 1:
-    circle = rg.Circle(rg.Point(100, 100), 20)
-    circle.fill_color = 'green'
-    draw_squares_from_circle(7, circle, window1)
+    rectangle = rg.Rectangle(rg.Point(200, 200), rg.Point(220, 240))
+    rectangle.fill_color = 'green'
+    draw_circles_from_rectangle(5, 5, rectangle, window1)
 
     # Test 2:
-    circle = rg.Circle(rg.Point(350, 70), 50)
-    draw_squares_from_circle(4, circle, window1)
+    rectangle = rg.Rectangle(rg.Point(100, 130), rg.Point(120, 100))
+    rectangle.fill_color = 'green'
+    draw_circles_from_rectangle(3, 4, rectangle, window1)
+
     window1.close_on_mouse_click()
 
     title = 'Test 3 of DRAW_CIRCLES_FROM_RECTANGLE: '
-    title += ' '
-    window2 = rg.RoseWindow(525, 300, title)
+    window2 = rg.RoseWindow(1000, 1000, title)
 
     # Test 3:
-    circle = rg.Circle(rg.Point(50, 50), 10)
-    circle.fill_color = 'blue'
-    draw_squares_from_circle(20, circle, window2)
+    rectangle = rg.Rectangle(rg.Point(500, 500), rg.Point(600, 600))
+    rectangle.fill_color = 'green'
+    draw_circles_from_rectangle(4, 3, rectangle, window2)
 
     window2.close_on_mouse_click()
-
 
 
 def draw_circles_from_rectangle(m, n, rectangle, window):
@@ -226,6 +225,35 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ####################################################################
     # ------------------------------------------------------------------
+
+    rectangle.attach_to(window)
+    r1 = math.fabs(rectangle.corner_1.y - rectangle.corner_2.y) / 2
+    if rectangle.corner_1.x < rectangle.corner_2.x:
+        x1 = rectangle.corner_1.x - r1
+    else:
+        x1 = rectangle.corner_2.x - r1
+    y1 = (rectangle.corner_2.y + rectangle.corner_1.y) / 2
+
+    for k in range(m):
+        circle1 = rg.Circle(rg.Point(x1 - 2 * r1 * k, y1), r1)
+        circle1.fill_color = rectangle.fill_color
+        circle1.outline_color = None
+        circle1.attach_to(window)
+
+    r2 = math.fabs(rectangle.corner_1.x - rectangle.corner_2.x) / 2
+    if rectangle.corner_1.y < rectangle.corner_2.y:
+        y2 = rectangle.corner_1.y - r2
+    else:
+        y2 = rectangle.corner_2.y - r2
+    x2 = (rectangle.corner_2.x + rectangle.corner_1.x) / 2
+
+    for k in range(n):
+        circle2 = rg.Circle(rg.Point(x2, y2 - 2 * r2 * k), r2)
+        circle2.outline_color = rectangle.outline_color
+        circle2.fill_color = None
+        circle2.attach_to(window)
+
+    window.render()
 
 
 def run_test_draw_lines_from_rectangles():
