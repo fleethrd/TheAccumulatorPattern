@@ -172,19 +172,19 @@ def run_test_factorial():
     # Test 3:
     answer_from_oracle = math.factorial(17)
     answer_from_my_code = factorial(17)
-    print('Test 2 expected (from oracle):', answer_from_oracle)
+    print('Test 3 expected (from oracle):', answer_from_oracle)
     print('       actual (from my code): ', answer_from_my_code)
 
     # Test 4:
-    answer_from_oracle = math.factorial(21)
-    answer_from_my_code = factorial(21)
-    print('Test 2 expected (from oracle):', answer_from_oracle)
+    answer_from_oracle = math.factorial(210)
+    answer_from_my_code = factorial(210)
+    print('Test 4 expected (from oracle):', answer_from_oracle)
     print('       actual (from my code): ', answer_from_my_code)
 
     # Test 5:
     answer_from_oracle = math.factorial(84)
     answer_from_my_code = factorial(84)
-    print('Test 2 expected (from oracle):', answer_from_oracle)
+    print('Test 5 expected (from oracle):', answer_from_oracle)
     print('       actual (from my code): ', answer_from_my_code)
 
 
