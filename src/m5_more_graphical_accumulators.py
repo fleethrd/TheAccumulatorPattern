@@ -123,7 +123,6 @@ def draw_squares_from_circle(n, circle, window):
     window.render()
 
 
-
 def run_test_draw_circles_from_rectangle():
     """ Tests the   draw_circles_from_rectangle  function. """
     print()
@@ -133,7 +132,7 @@ def run_test_draw_circles_from_rectangle():
     print('--------------------------------------------------')
 
     # ------------------------------------------------------------------
-    # TODO: 3. Implement this TEST function.
+    # DONE: 3. Implement this TEST function.
     #   It TESTS the  draw_circles_from_rectangle  function
     #   defined below.  Include at least **   3   ** tests, of which
     #      ***  at least TWO tests are on ONE window and
@@ -212,7 +211,7 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -333,7 +332,7 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
       :type window: rg.RoseWindow
       """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -351,14 +350,28 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
     y1 = rectangle1.get_center().y
     x2 = rectangle2.get_center().x
     y2 = rectangle2.get_center().y
-    center1 = rg.Point(x1, y1)
-    center2 = rg.Point(x2, y2)
-    lower_left1 = rg.Point(rectangle1.get_lower_left_corner().x,
-                           rectangle1.get_center().y)
-    line = rg.Line(center1, center2)
-    line.attach_to(window)
+
     rectangle1.attach_to(window)
     rectangle2.attach_to(window)
+
+    x1_new = rectangle1.get_lower_left_corner().x
+    y1_new = rectangle1.get_lower_left_corner().y
+
+    x_convert = math.fabs(x1_new - x1)
+    y_convert = math.fabs(y1_new - y1)
+
+    for k in range(n):
+        point1 = rg.Point(x1 - k * x_convert, y1 + k * y_convert)
+        point2 = rg.Point(x2 - k * x_convert, y2 + k * y_convert)
+        line = rg.Line(point1, point2)
+        line.thickness = 5
+        if k % 2 == 0:
+            line.color = rectangle1.outline_color
+        else:
+            line.color = rectangle2.outline_color
+
+        line.attach_to(window)
+
     window.render()
 
 
